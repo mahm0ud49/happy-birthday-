@@ -1,0 +1,888 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   الصفحة
+========================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: linear-gradient(135deg, #fff5f7, #ffe9ef);
+
+    font-family: Arial, sans-serif;
+
+    text-align: center;
+    padding: 20px;
+
+    /* مساحة إضافية عشان الـ Scroll يقدر ينزل للآخر */
+    padding-bottom: 100vh;
+}
+
+
+/* =========================
+   العنوان الرئيسي
+========================= */
+
+h1 {
+    color: #b5003a;
+    font-size: 38px;
+    margin-bottom: 15px;
+
+    text-shadow: 0 3px 8px rgba(181, 0, 58, 0.15);
+}
+
+
+/* =========================
+   الفقرات
+========================= */
+
+body > p {
+    color: #6b3044;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   الأزرار
+========================= */
+
+button {
+    background-color: #b5003a;
+    color: white;
+
+    border: none;
+    border-radius: 25px;
+
+    padding: 14px 28px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* حركة الزر عند المرور عليه */
+
+button:hover {
+    transform: scale(1.05);
+
+    box-shadow: 0 5px 15px rgba(181, 0, 58, 0.25);
+}
+
+
+/* حركة الزر عند الضغط */
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   الرسالة
+========================= */
+
+#message {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+    max-width: 90%;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+}
+
+
+/* ظهور الرسالة */
+
+#message.show {
+    display: block;
+
+    animation: showMessage 0.8s ease forwards;
+}
+
+
+/* حركة ظهور الرسالة */
+
+@keyframes showMessage {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* عنوان الرسالة */
+
+#message h2 {
+    color: #b5003a;
+
+    margin-top: 0;
+}
+
+
+/* نص الرسالة */
+
+#message p {
+    color: #6b3044;
+
+    font-size: 18px;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   زر الذكريات
+========================= */
+
+#memories-button {
+    display: none;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   القلوب المتحركة
+========================= */
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* شكل القلوب */
+
+.hearts span {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: float 6s linear infinite;
+
+    opacity: 0.8;
+}
+
+
+/* أماكن القلوب */
+
+.hearts span:nth-child(1) {
+    left: 10%;
+
+    animation-delay: 0s;
+}
+
+
+.hearts span:nth-child(2) {
+    left: 30%;
+
+    animation-delay: 1s;
+}
+
+
+.hearts span:nth-child(3) {
+    left: 50%;
+
+    animation-delay: 2s;
+}
+
+
+.hearts span:nth-child(4) {
+    left: 70%;
+
+    animation-delay: 3s;
+}
+
+
+.hearts span:nth-child(5) {
+    left: 90%;
+
+    animation-delay: 4s;
+}
+
+
+/* أحجام القلوب */
+
+.hearts span:nth-child(1) {
+    font-size: 20px;
+}
+
+
+.hearts span:nth-child(2) {
+    font-size: 30px;
+}
+
+
+.hearts span:nth-child(3) {
+    font-size: 24px;
+}
+
+
+.hearts span:nth-child(4) {
+    font-size: 35px;
+}
+
+
+.hearts span:nth-child(5) {
+    font-size: 22px;
+}
+
+
+/* سرعة القلوب */
+
+.hearts span:nth-child(1) {
+    animation-duration: 5s;
+}
+
+
+.hearts span:nth-child(2) {
+    animation-duration: 7s;
+}
+
+
+.hearts span:nth-child(3) {
+    animation-duration: 6s;
+}
+
+
+.hearts span:nth-child(4) {
+    animation-duration: 8s;
+}
+
+
+.hearts span:nth-child(5) {
+    animation-duration: 5.5s;
+}
+
+
+/* حركة القلب */
+
+@keyframes float {
+
+    from {
+        transform: translateY(0);
+
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-100vh);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   الذكريات
+========================= */
+
+#memories {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 60px;
+
+    text-align: center;
+}
+
+
+/* عنوان الذكريات */
+
+#memories > h2 {
+    color: #b5003a;
+
+    font-size: 32px;
+}
+
+
+/* وصف الذكريات */
+
+#memories > p {
+    font-size: 17px;
+}
+
+
+/* حاوية الصور */
+
+.memory-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   كارت الذكرى
+========================= */
+
+.memory-card {
+    display: none;
+
+    background-color: white;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    padding: 15px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    width: 100%;
+
+    max-width: 350px;
+
+    margin: 0 auto;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    overflow: hidden;
+}
+
+
+/* ظهور كارت الذكرى */
+
+.memory-card.show {
+    display: block;
+
+    animation: memoryAppear 0.8s ease forwards;
+}
+
+
+/* حركة ظهور الكارت */
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   صور الذكريات
+========================= */
+
+.memory-card img {
+    width: 100%;
+
+    height: min(300px, 70vw);
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    display: block;
+
+    background-color: #fff5f7;
+}
+
+
+/* نص الذكرى */
+
+.memory-card p {
+    color: #6b3044;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    margin: 15px 5px 5px;
+}
+
+
+/* حركة الكارت عند المرور */
+
+.memory-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   زر قسم أمي
+========================= */
+
+#about-button {
+    display: none;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   أمي بالنسبة لي
+========================= */
+
+#about-mom {
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 30px 20px;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    background-color: white;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+
+    border: 2px solid #f3c4d2;
+}
+
+
+/* عنوان أمي */
+
+#about-mom h2 {
+    color: #b5003a;
+
+    font-size: 30px;
+
+    margin-top: 0;
+
+    margin-bottom: 15px;
+}
+
+
+/* نص أمي */
+
+#about-mom p {
+    color: #6b3044;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* ظهور قسم أمي */
+
+#about-mom.show {
+    display: block;
+
+    animation: aboutMom 0.8s ease forwards;
+}
+
+
+/* حركة ظهور قسم أمي */
+
+@keyframes aboutMom {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   زر الكلمة الأخيرة
+========================= */
+
+#words-button {
+    display: none;
+
+    margin-top: 30px;
+}
+
+
+/* =========================
+   حاجات نفسي أقولها
+========================= */
+
+#words {
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 30px 20px;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    background-color: white;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+
+    border: 2px solid #f3c4d2;
+}
+
+
+/* ظهور قسم الكلمات */
+
+#words.show {
+    display: block;
+
+    animation: wordsAppear 0.8s ease forwards;
+}
+
+
+/* حركة ظهور الكلمات */
+
+@keyframes wordsAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   النهاية
+========================= */
+
+#final {
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 40px 20px;
+
+    width: 90%;
+
+    max-width: 600px;
+
+    background-color: white;
+
+    border-radius: 25px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+
+    border: 2px solid #f3c4d2;
+
+    transform-origin: center;
+}
+
+
+/* عنوان النهاية */
+
+#final h2 {
+    color: #b5003a;
+
+    font-size: 20px;
+
+    margin: 0;
+
+    /* إلغاء التكبير والتصغير المستمر */
+    animation: none;
+}
+
+
+/* ظهور النهاية */
+
+#final.show {
+    display: block;
+
+    animation: finalAppear 1s ease forwards;
+}
+
+
+/* حركة ظهور النهاية */
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* حركة القلب في النهاية */
+
+@keyframes finalHeart {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+
+}
+
+
+/* =========================
+   زر النهاية
+========================= */
+
+#final-button {
+    display: none;
+
+    margin-top: 30px;
+}
+
+
+/* ظهور زر النهاية */
+
+#final-button.show {
+    display: block;
+
+    animation: finalButtonAppear 0.8s ease forwards;
+}
+
+
+/* حركة ظهور زر النهاية */
+
+@keyframes finalButtonAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   انتقال ناعم
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================
+   زر ابدأ الحكاية
+========================= */
+
+#start-button {
+    margin-top: 10px;
+
+    box-shadow: 0 6px 18px rgba(181, 0, 58, 0.25);
+
+    animation: startPulse 2s ease-in-out infinite;
+}
+
+
+/* حركة زر البداية */
+
+@keyframes startPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* إيقاف الحركة عند لمس الزر */
+
+#start-button:hover {
+    animation-play-state: paused;
+}
+
+
+/* =========================
+   قلوب صغيرة فوق الأقسام
+========================= */
+
+#memories,
+#about-mom,
+#words,
+#final {
+    position: relative;
+}
+
+
+#memories::before,
+#about-mom::before,
+#words::before,
+#final::before {
+    content: "♥";
+
+    display: block;
+
+    color: #b5003a;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   حدود الأقسام
+========================= */
+
+#about-mom {
+    border: 2px solid #f3c4d2;
+}
+
+
+#words {
+    border: 2px solid #f3c4d2;
+}
+
+
+#final {
+    border: 2px solid #f3c4d2;
+}
+
+
+/* =========================
+   نصوص الأقسام
+========================= */
+
+#about-mom p,
+#words p,
+#final p {
+    line-height: 1.8;
+}
+
+
+/* =========================
+   إعدادات الموبايل
+========================= */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+
+    #message p {
+        font-size: 17px;
+    }
+
+
+    #memories > h2 {
+        font-size: 28px;
+    }
+
+
+    #about-mom h2,
+    #words h2,
+    #final h2 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================
+   إعدادات الـ Scroll
+========================= */
+
+#message,
+#memories,
+.memory-card,
+#about-mom,
+#words,
+#final {
+    scroll-margin-top: 20px;
+}
